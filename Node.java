@@ -73,13 +73,13 @@ public class Node<E extends Comparable<E>> {
     		rightHeight += this.getRightChild().getHeight();
     	}
     	
-    	int delta = leftHeight - rightHeight;
+    	int delta = (leftHeight - rightHeight);
     	boolean res;
     	
     	if (delta > 1 || delta < -1){
-    		res = false;
-    	} else {
     		res = true;
+    	} else {
+    		res = false;
     	}
     	
     	return res;

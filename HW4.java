@@ -12,36 +12,39 @@ public class HW4 {
             input = sc.nextLine();
             String[] phrases = input.split(" ");
             task = phrases[0];
-            switch(task) {
-                case "insert" :
-                    num = Integer.parseInt(phrases[1]);
-                    myAVL.insert(num);
-                    break;
-                case "delete" :
-                    num = Integer.parseInt(phrases[1]);
-                    myAVL.delete(num);
-                    break;
-                case "search" :
-                    num = Integer.parseInt(phrases[1]);
-                    Node<Integer> found = myAVL.search(num);
-                    if (found == null){
-                        System.out.println("Not Found");
-                    } else {
-                        System.out.println("Found");
-                    }
-                    break;
-                case "traverse" :
-                    myAVL.traverse("preorder", myAVL.getRoot());
-                    System.out.println();
-                    break;
-                case "exit" :
-                    // TODO:
-                    // Exit correctly
-                    break;
-                default:
-                    break;
+            
+	        if (task.equals("insert")){
+	        	num = Integer.parseInt(phrases[1]);
+	        	myAVL.insert(num);
+	        }
+	        
+	        if (task.equals("delete")){
+	        	num = Integer.parseInt(phrases[1]);
+	        	myAVL.delete(num);
+	        }
+
+	        if (task.equals("search")){
+	        	num = Integer.parseInt(phrases[1]);
+	        	Node<Integer> found = myAVL.search(num);
+                if (found == null){
+                    System.out.println("Not Found");
+                } else {
+                    System.out.println("Found");
+                }
+	        }
+	        
+	        if (task.equals("traverse")){
+	        	myAVL.traverse("preorder", myAVL.getRoot());
+	        }
+	        
+	        if (task.equals("exit")){
+	        	System.out.println("Successful Exit.");
+	        	break;
+	        }
+
             }
-        }
         sc.close();
-    }
+
+        }
+
 }
